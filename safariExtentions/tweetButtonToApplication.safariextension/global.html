@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>global HTML page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta http-equiv="Content-Script-Type" content="text/javascript"> 
+
+<script type="text/javascript">
+
+
+
+//---------------------------
+// Injecting Event
+//---------------------------
+
+safari.application.addEventListener('message',function(evt){
+	
+	// Tweetする
+	if ( evt.name == 'tweet' ){
+		tweet( evt.message );
+	}
+	
+	// load Optins 設定情報を要求
+	if ( evt.name == 'options' ){
+		evt.target.page.dispatchMessage('options', options);
+	}
+	
+},false);
+
+
+//---------------------------
+// Options
+//---------------------------
+
+// Option Load
+var options = {
+	twitterClient: safari.extension.settings.getItem('twitterClient'),
+}
+
+console.log( options );
+
+// Option change Save
+safari.extension.settings.addEventListener('change',function(evt){
+	options[evt.key] = evt.newValue;
+	console.log('changeSetting: ', evt.key, ': ', evt.oldValue, ' => ', evt.newValue );
+},false);
+
+
+//---------------------------
+// Tweet実行
+//---------------------------
+function tweet( url ){
+	text = url.text + ' ' + url.url;
+	console.log( options.twitterClient + ' => ' + text );
+	
+	// Twitter for Mac
+	if ( options.twitterClient == 'tweetie' ){
+		safari.application.browserWindows[0].tabs[0].url = 'tweetie: ' + encodeURI( text );
+	}
+	
+	// 夜フクロウ
+	else if ( options.twitterClient == 'yorufukurou' ){
+		safari.application.browserWindows[0].tabs[0].url = 'yorufukurou://pasteurl/' + encodeURI ( text );
+	}
+	
+	// Echofon for Mac
+	else if ( options.twitterClient == 'echofon' ){
+		safari.application.browserWindows[0].tabs[0].url = 'echofon:' + encodeURI( text );
+	}
+}
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

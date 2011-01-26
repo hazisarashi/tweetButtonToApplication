@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>DefaultValue</key>
+		<string>echofon</string>
+		<key>Key</key>
+		<string>twitterClient</string>
+		<key>Title</key>
+		<string>Twitterクライアント</string>
+		<key>Titles</key>
+		<array>
+			<string>夜フクロウ</string>
+			<string>Twitter for Mac</string>
+			<string>Echofon for Mac</string>
+		</array>
+		<key>Type</key>
+		<string>PopUpButton</string>
+		<key>Values</key>
+		<array>
+			<string>yorufukurou</string>
+			<string>twitter</string>
+			<string>echofon</string>
+		</array>
+	</dict>
+</array>
+</plist>

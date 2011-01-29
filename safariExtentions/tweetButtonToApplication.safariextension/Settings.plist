@@ -12,16 +12,16 @@
 		<key>Titles</key>
 		<array>
 			<string>夜フクロウ</string>
-			<string>Twitter for Mac</string>
 			<string>Echofon for Mac</string>
+			<string>Twitter for Mac(無効)</string>
 		</array>
 		<key>Type</key>
 		<string>PopUpButton</string>
 		<key>Values</key>
 		<array>
 			<string>yorufukurou</string>
-			<string>twitter</string>
 			<string>echofon</string>
+			<string>twitter</string>
 		</array>
 	</dict>
 	<dict>

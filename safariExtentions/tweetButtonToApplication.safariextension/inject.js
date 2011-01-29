@@ -24,17 +24,21 @@ safari.self.addEventListener('message',function(evt){
 // Main
 //---------------------------
 
-// Tweet文を精製
-var url = {};
-if (location.search.length > 1) {
-	var list = location.search.substr(1).split("&");
-	for (i in list) {
-		var data = list[i].split("=");
-		url[ decodeURIComponent( data[0] ) ] = decodeURIComponent( data[1] );
+// URLからテキスト情報を抜き出して、tweetに送る
+$('button#btn').click(function(){
+	var url = {};
+	if (location.search.length > 1) {
+		var list = location.search.substr(1).split("&");
+		for (i in list) {
+			var data = list[i].split("=");
+			url[ decodeURIComponent( data[0] ) ] = decodeURIComponent( data[1] );
+		}
 	}
-}
-
-safari.self.tab.dispatchMessage('tweet', url );
-console.log( url );
-
-window.close();
+	
+	safari.self.tab.dispatchMessage('tweet', url );
+	console.log( url );
+	
+	return false;
+	
+});
+$('button#btn').get(0).onclick=null;

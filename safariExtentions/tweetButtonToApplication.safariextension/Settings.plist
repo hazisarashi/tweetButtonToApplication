@@ -8,7 +8,7 @@
 		<key>Key</key>
 		<string>twitterClient</string>
 		<key>Title</key>
-		<string>Twitterクライアント</string>
+		<string>使用するTwitterクライアント</string>
 		<key>Titles</key>
 		<array>
 			<string>夜フクロウ</string>
@@ -23,6 +23,16 @@
 			<string>twitter</string>
 			<string>echofon</string>
 		</array>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>Now Browsing: {title} {url} {via}</string>
+		<key>Key</key>
+		<string>style</string>
+		<key>Title</key>
+		<string>Tweet文の形式</string>
+		<key>Type</key>
+		<string>TextField</string>
 	</dict>
 </array>
 </plist>

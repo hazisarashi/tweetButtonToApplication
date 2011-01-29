@@ -11,9 +11,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.2</string>
+	<string>0.3</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -25,16 +25,17 @@
 		<dict>
 			<key>End</key>
 			<array>
+				<string>jquery-1.4.4.js</string>
 				<string>inject.js</string>
 			</array>
 		</dict>
 		<key>Whitelist</key>
 		<array>
-			<string>http://twitter.com/share*</string>
+			<string>http://platform0.twitter.com/widgets/tweet_button.html*</string>
 		</array>
 	</dict>
 	<key>Description</key>
-	<string>Twitter公式Tweetボタンを押した時に、各TwitterクライアントにTweet文を転送する。</string>
+	<string>Webページ上の公式Tweetボタンを押した時に、各TwitterクライアントにTweet文を転送する。</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>

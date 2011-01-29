@@ -35,6 +35,7 @@ safari.application.addEventListener('message',function(evt){
 // Option Load
 var options = {
 	twitterClient: safari.extension.settings.getItem('twitterClient'),
+	style: safari.extension.settings.getItem('style'),
 }
 
 console.log( options );
@@ -49,8 +50,15 @@ safari.extension.settings.addEventListener('change',function(evt){
 //---------------------------
 // Tweet実行
 //---------------------------
-function tweet( url ){
-	text = url.text + ' ' + url.url;
+function tweet( tweet_data ){
+	
+	// Tweet文精製
+	var text = options.style;
+	text = text.replace(/\{title\}/ig, tweet_data.text);
+	text = text.replace(/\{url\}/ig, tweet_data.url);
+	text = text.replace(/\{via\}/ig, (tweet_data.via ? "via @"+tweet_data.via : "") );
+	text = text.replace(/(^\s+)|(\s+$)/g, ""); //Trim
+	
 	console.log( options.twitterClient + ' => ' + text );
 	
 	// Twitter for Mac

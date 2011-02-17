@@ -31,7 +31,7 @@
 		</dict>
 		<key>Whitelist</key>
 		<array>
-			<string>http://platform0.twitter.com/widgets/tweet_button.html*</string>
+			<string>http://*.twitter.com/widgets/tweet_button.html*</string>
 		</array>
 	</dict>
 	<key>Description</key>

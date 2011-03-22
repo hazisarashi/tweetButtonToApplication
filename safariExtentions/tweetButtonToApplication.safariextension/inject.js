@@ -25,7 +25,7 @@ safari.self.addEventListener('message',function(evt){
 //---------------------------
 
 // URLからテキスト情報を抜き出して、tweetに送る
-$('button#btn').click(function(){
+$('span.tb a').click(function(){
 	var url = {};
 	if (location.search.length > 1) {
 		var list = location.search.substr(1).split("&");
@@ -41,4 +41,4 @@ $('button#btn').click(function(){
 	return false;
 	
 });
-$('button#btn').get(0).onclick=null;
+$('span.tb a').get(0).onclick=null;

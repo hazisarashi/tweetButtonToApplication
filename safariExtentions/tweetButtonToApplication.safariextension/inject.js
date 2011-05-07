@@ -35,7 +35,7 @@ $('span.tb a').click(function(){
 		}
 	}
 	
-	safari.self.tab.dispatchMessage('tweet', url );
+	safari.self.tab.dispatchMessage('tweetButton', url );
 	console.log( url );
 	
 	return false;

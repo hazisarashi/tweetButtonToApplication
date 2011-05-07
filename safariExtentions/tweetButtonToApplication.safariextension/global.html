@@ -13,19 +13,30 @@
 // Injecting Event
 //---------------------------
 
-safari.application.addEventListener('message',function(evt){
+safari.application.addEventListener('message',function(event){
 	
 	// Tweetする
-	if ( evt.name == 'tweet' ){
-		tweet( evt.message );
+	if ( event.name === 'tweetButton' ){
+		tweet( event.message );
 	}
 	
 	// load Optins 設定情報を要求
-	if ( evt.name == 'options' ){
-		evt.target.page.dispatchMessage('options', options);
+	if ( event.name === 'options' ){
+		event.target.page.dispatchMessage('options', options);
 	}
 	
 },false);
+
+
+
+safari.application.addEventListener("command", function(event){
+	if(event.command === "menubarTweet") {
+		tweet({
+			text: event.target.browserWindow.activeTab.title,
+			url:  event.target.browserWindow.activeTab.url,
+		});
+	}
+}, false);
 
 
 //---------------------------
@@ -62,8 +73,8 @@ function tweet( tweet_data ){
 	console.log( options.twitterClient + ' => ' + text );
 	
 	// Twitter for Mac
-	if ( options.twitterClient == 'tweetie' ){
-		safari.application.browserWindows[0].tabs[0].url = 'tweetie: ' + encodeURI( text );
+	if ( options.twitterClient == 'twitter' ){
+		safari.application.browserWindows[0].tabs[0].url = 'twitter://post?message=' + encodeURI( text );
 	}
 	
 	// 夜フクロウ
@@ -74,6 +85,12 @@ function tweet( tweet_data ){
 	// Echofon for Mac
 	else if ( options.twitterClient == 'echofon' ){
 		safari.application.browserWindows[0].tabs[0].url = 'echofon:' + encodeURI( text );
+	
+	}
+	
+	// Tweetie
+	else if ( options.twitterClient == 'twitter' ){
+		safari.application.browserWindows[0].tabs[0].url = 'tweetie:' + encodeURI( text );
 	}
 }
 

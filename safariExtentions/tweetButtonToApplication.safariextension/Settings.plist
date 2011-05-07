@@ -13,7 +13,8 @@
 		<array>
 			<string>夜フクロウ</string>
 			<string>Echofon for Mac</string>
-			<string>Twitter for Mac(無効)</string>
+			<string>Twitter for Mac</string>
+			<string>Tweeite</string>
 		</array>
 		<key>Type</key>
 		<string>PopUpButton</string>
@@ -22,6 +23,7 @@
 			<string>yorufukurou</string>
 			<string>echofon</string>
 			<string>twitter</string>
+			<string>tweetie</string>
 		</array>
 	</dict>
 	<dict>

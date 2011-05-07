@@ -11,13 +11,30 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
 	<string>5</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
 		<string>global.html</string>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string>menubarTweet</string>
+				<key>Identifier</key>
+				<string>menubar tweet</string>
+				<key>Image</key>
+				<string>menuber.png</string>
+				<key>Label</key>
+				<string>tweetButtonToApplication</string>
+				<key>Palette Label</key>
+				<string>tweetButtonToApplication</string>
+				<key>Tool Tip</key>
+				<string>現在のページのタイトルとURLをTwitterクライアントに送ります</string>
+			</dict>
+		</array>
 	</dict>
 	<key>Content</key>
 	<dict>

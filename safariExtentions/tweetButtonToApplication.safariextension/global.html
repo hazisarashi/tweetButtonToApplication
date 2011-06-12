@@ -74,7 +74,7 @@ function tweet( tweet_data ){
 	
 	// Twitter for Mac
 	if ( options.twitterClient == 'twitter' ){
-		safari.application.browserWindows[0].tabs[0].url = 'twitter://post?message=' + encodeURI( text );
+		safari.application.browserWindows[0].tabs[0].url = 'twitter://post?message=' + encodeURIComponent( text );
 	}
 	
 	// 夜フクロウ

@@ -2,7 +2,7 @@
 // Option
 //---------------------------
 
-console.log( 'start' );
+/* console.log( 'start' ); */
 
 // Global PageにOption情報を要求
 //safari.self.tab.dispatchMessage('options',location.href);
@@ -27,18 +27,19 @@ safari.self.addEventListener('message',function(evt){
 // URLからテキスト情報を抜き出して、tweetに送る
 $('span.tb a').click(function(){
 	var url = {};
-	if (location.search.length > 1) {
-		var list = location.search.substr(1).split("&");
-		for (i in list) {
+	if ( location.hash.length > 1 ) {
+		var list = location.hash.substr(1).split("&");
+		for ( i in list ) {
 			var data = list[i].split("=");
 			url[ decodeURIComponent( data[0] ) ] = decodeURIComponent( data[1] );
 		}
 	}
 	
-	safari.self.tab.dispatchMessage('tweetButton', url );
-	console.log( url );
+	safari.self.tab.dispatchMessage( 'tweetButton', url );
+	console.log( "tweet url", url );
 	
 	return false;
 	
 });
+
 $('span.tb a').get(0).onclick=null;

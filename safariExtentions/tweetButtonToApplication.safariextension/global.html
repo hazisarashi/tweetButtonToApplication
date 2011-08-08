@@ -2,12 +2,9 @@
 <html>
 <head>
 <title>global HTML page</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-<meta http-equiv="Content-Script-Type" content="text/javascript"> 
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
 <script type="text/javascript">
-
-
 
 //---------------------------
 // Injecting Event
@@ -31,6 +28,7 @@ safari.application.addEventListener('message',function(event){
 
 safari.application.addEventListener("command", function(event){
 	if(event.command === "menubarTweet") {
+		console.log( "menubarTweet" ,event.target.browserWindow.activeTab )
 		tweet({
 			text: event.target.browserWindow.activeTab.title,
 			url:  event.target.browserWindow.activeTab.url,
@@ -47,9 +45,9 @@ safari.application.addEventListener("command", function(event){
 var options = {
 	twitterClient: safari.extension.settings.getItem('twitterClient'),
 	style: safari.extension.settings.getItem('style'),
+    
 }
-
-console.log( options );
+console.log( "options loaded", options );
 
 // Option change Save
 safari.extension.settings.addEventListener('change',function(evt){
@@ -65,10 +63,10 @@ function tweet( tweet_data ){
 	
 	// Tweet文精製
 	var text = options.style;
-	text = text.replace(/\{title\}/ig, tweet_data.text);
-	text = text.replace(/\{url\}/ig, tweet_data.url);
-	text = text.replace(/\{via\}/ig, (tweet_data.via ? "via @"+tweet_data.via : "") );
-	text = text.replace(/(^\s+)|(\s+$)/g, ""); //Trim
+	text = text.replace( /\{title\}/ig, tweet_data.text );
+	text = text.replace( /\{url\}/ig, tweet_data.url );
+	text = text.replace( /\{via\}/ig, (tweet_data.via ? "via @"+tweet_data.via : "") );
+	text = text.replace( /(^\s+)|(\s+$)/g, "" ); //Trim
 	
 	console.log( options.twitterClient + ' => ' + text );
 	

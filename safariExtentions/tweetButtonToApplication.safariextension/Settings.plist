@@ -15,6 +15,7 @@
 			<string>Echofon for Mac</string>
 			<string>Twitter for Mac</string>
 			<string>Tweeite</string>
+			<string>Tweetbot for Mac</string>
 		</array>
 		<key>Type</key>
 		<string>PopUpButton</string>
@@ -24,6 +25,7 @@
 			<string>echofon</string>
 			<string>twitter</string>
 			<string>tweetie</string>
+			<string>tweetbot</string>
 		</array>
 	</dict>
 	<dict>

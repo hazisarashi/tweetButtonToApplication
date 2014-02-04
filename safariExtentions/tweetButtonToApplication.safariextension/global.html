@@ -87,8 +87,13 @@ function tweet( tweet_data ){
 	}
 	
 	// Tweetie
-	else if ( options.twitterClient == 'twitter' ){
+	else if ( options.twitterClient == 'tweetie' ){
 		safari.application.browserWindows[0].tabs[0].url = 'tweetie:' + encodeURI( text );
+	}
+	
+	// Tweetbot for Mac
+	else if ( options.twitterClient == 'tweetbot' ){
+		safari.application.browserWindows[0].tabs[0].url = 'tweetbot:/post?text=' + encodeURI( text );
 	}
 }
 
